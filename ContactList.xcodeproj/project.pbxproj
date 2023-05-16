@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0705466E2A13A3B300BC4955 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705466D2A13A3B300BC4955 /* Person.swift */; };
 		070546702A13A46700BC4955 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705466F2A13A46700BC4955 /* ContactListViewModel.swift */; };
+		070546722A13A63700BC4955 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070546712A13A63700BC4955 /* EditView.swift */; };
 		0762BC7B2A13A00D0014A53B /* ContactListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762BC7A2A13A00D0014A53B /* ContactListApp.swift */; };
 		0762BC7D2A13A00D0014A53B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762BC7C2A13A00D0014A53B /* ContentView.swift */; };
 		0762BC7F2A13A00F0014A53B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0762BC7E2A13A00F0014A53B /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		0705466D2A13A3B300BC4955 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		0705466F2A13A46700BC4955 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
+		070546712A13A63700BC4955 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		0762BC772A13A00D0014A53B /* ContactList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0762BC7A2A13A00D0014A53B /* ContactListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListApp.swift; sourceTree = "<group>"; };
 		0762BC7C2A13A00D0014A53B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				0762BC7C2A13A00D0014A53B /* ContentView.swift */,
+				070546712A13A63700BC4955 /* EditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0705466E2A13A3B300BC4955 /* Person.swift in Sources */,
+				070546722A13A63700BC4955 /* EditView.swift in Sources */,
 				070546702A13A46700BC4955 /* ContactListViewModel.swift in Sources */,
 				0762BC7D2A13A00D0014A53B /* ContentView.swift in Sources */,
 				0762BC7B2A13A00D0014A53B /* ContactListApp.swift in Sources */,

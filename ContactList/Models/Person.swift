@@ -11,4 +11,6 @@ struct Person: Identifiable, Codable, Hashable {
     var id: String?
     var name = ""
     var company = ""
+    
+    static let example = Person(name: "Eric", company: "Aplle Corporation")
 }
