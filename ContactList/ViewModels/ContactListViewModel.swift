@@ -24,13 +24,29 @@ class ContactListViewModel: ObservableObject {
                 contacts[index] = person
             }
         }
+        saveData()
     }
     
     func deletePerson(indexSet: IndexSet) {
         contacts.remove(atOffsets: indexSet)
+        saveData()
     }
     
     func movePerson(fromOffests: IndexSet, toOffset: Int) {
         contacts.move(fromOffsets: fromOffests, toOffset: toOffset)
+        saveData()
+    }
+    
+    //MARK: - DOCUMENTS DIRECTORY
+    
+    let path = URL.documentsDirectory.appending(component: "contacts")
+    
+    func saveData() {
+        let data = try? JSONEncoder().encode(contacts)
+        do {
+            try data?.write(to: path)
+        } catch {
+            print("😡 ERROR: Could not save data \(error.localizedDescription)")
+        }
     }
 }
