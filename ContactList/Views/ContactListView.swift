@@ -1,5 +1,5 @@
 //
-//  ListView.swift
+//  ContactListView.swift
 //  ContactList
 //
 //  Created by Eric on 16/05/2023.
@@ -16,7 +16,7 @@ struct ContactListView: View {
             List {
                 ForEach(contactListVM.contacts, id: \.self) { contact in
                     NavigationLink {
-                        EditView(person: contact)
+                        ContactView(person: contact)
                     } label: {
                         HStack {
                             Image(systemName: "person.circle")
@@ -55,7 +55,7 @@ struct ContactListView: View {
     }
 }
 
-struct ListView_Previews: PreviewProvider {
+struct ContactListView_Previews: PreviewProvider {
     static var previews: some View {
         ContactListView()
             .environmentObject(ContactListViewModel())

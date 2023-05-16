@@ -12,5 +12,5 @@ struct Person: Identifiable, Codable, Hashable {
     var name = ""
     var company = ""
     
-    static let example = Person(name: "Eric", company: "Apple Corporation")
+    static let example = Person(name: "Eric Dubourdon", company: "Apple Corporation")
 }

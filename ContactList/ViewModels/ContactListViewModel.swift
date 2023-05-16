@@ -11,7 +11,6 @@ class ContactListViewModel: ObservableObject {
     @Published var contacts: [Person] = []
     
     init() {
-//        contacts = [Person(name: "Eric", company: "Apple Corporation"), Person(name: "Stephan", company: "Microsoft TM")]
         loadData()
     }
     
