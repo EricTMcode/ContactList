@@ -25,11 +25,13 @@ struct ContactListView: View {
                                 Text(contact.name)
                                     .font(.title2)
                                     .bold()
-                                Text("Apple Corporation")
+                                Text(contact.company)
                             }
                         }
                     }
                 }
+                .onDelete(perform: contactListVM.deletePerson)
+                .onMove(perform: contactListVM.movePerson)
             }
             .navigationTitle("Contacts")
             .sheet(isPresented: $sheetIsPresented) {

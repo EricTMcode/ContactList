@@ -37,6 +37,7 @@ struct EditView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Save") {
+                    contactlistVM.savePerson(person: person)
                     dismiss()
                 }
             }

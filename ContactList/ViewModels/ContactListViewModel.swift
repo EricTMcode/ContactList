@@ -25,4 +25,12 @@ class ContactListViewModel: ObservableObject {
             }
         }
     }
+    
+    func deletePerson(indexSet: IndexSet) {
+        contacts.remove(atOffsets: indexSet)
+    }
+    
+    func movePerson(fromOffests: IndexSet, toOffset: Int) {
+        contacts.move(fromOffsets: fromOffests, toOffset: toOffset)
+    }
 }
