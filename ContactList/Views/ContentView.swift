@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContactListView: View {
     @EnvironmentObject var contactListVM: ContactListViewModel
+    @State private var sheetIsPresented = false
     
     var body: some View {
         NavigationStack {
@@ -31,13 +32,18 @@ struct ContactListView: View {
                 }
             }
             .navigationTitle("Contacts")
+            .sheet(isPresented: $sheetIsPresented) {
+                NavigationStack {
+                    EditView(person: Person())
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        
+                        sheetIsPresented.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }
