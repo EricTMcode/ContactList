@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditView: View {
     @EnvironmentObject var contactlistVM: ContactListViewModel
+    @Environment(\.dismiss) private var dismiss
     @State var person: Person
     
     var body: some View {
@@ -28,6 +29,18 @@ struct EditView: View {
             Spacer()
         }
         .padding()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Cancel") {
+                    dismiss()
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Save") {
+                    dismiss()
+                }
+            }
+        }
     }
 }
 
