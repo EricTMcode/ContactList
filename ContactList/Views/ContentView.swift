@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ListView.swift
 //  ContactList
 //
 //  Created by Eric on 16/05/2023.
@@ -7,20 +7,44 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ListView: View {
+    let contacts = ["Eric", "Stephan", "Sylvie", "Lucia"]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                ForEach(contacts, id: \.self) { contact in
+                    HStack {
+                        Image(systemName: "person.circle")
+                            .font(.system(size: 50))
+                        VStack(alignment: .leading) {
+                            Text(contact)
+                                .font(.title2)
+                                .bold()
+                            Text("Apple Corporation")
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Contacts")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ListView()
     }
 }
