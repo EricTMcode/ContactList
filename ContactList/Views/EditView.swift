@@ -12,13 +12,30 @@ struct EditView: View {
     @State var person: Person
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text("Name:")
+                .font(.title2)
+                .bold()
+            TextField("Enter name", text: $person.name)
+                .textFieldStyle(.roundedBorder)
+            
+            Text("Company:")
+                .font(.title2)
+                .bold()
+            TextField("Enter Company", text: $person.company)
+                .textFieldStyle(.roundedBorder)
+            
+            Spacer()
+        }
+        .padding()
     }
 }
 
 struct EditView_Previews: PreviewProvider {
     static var previews: some View {
-        EditView(person: Person.example)
-            .environmentObject(ContactListViewModel())
+        NavigationStack {
+            EditView(person: Person.example)
+                .environmentObject(ContactListViewModel())
+        }
     }
 }
