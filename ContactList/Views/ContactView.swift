@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContactView: View {
-    @EnvironmentObject var ContactListVM: ContactListViewModel
-    @State var person: Person
+    let person: Person
+    @State private var sheetIsPresented = false
     
     var body: some View {
         VStack {
@@ -24,12 +24,25 @@ struct ContactView: View {
             
             Spacer()
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Edit") {
+                    sheetIsPresented.toggle()
+                }
+            }
+        }
+        .fullScreenCover(isPresented: $sheetIsPresented) {
+            NavigationStack {
+                EditView(person: person)
+            }
+        }
     }
 }
 
 struct ContactView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactView(person: Person.example)
-            .environmentObject(ContactListViewModel())
+        NavigationStack {
+            ContactView(person: Person.example)
+        }
     }
 }

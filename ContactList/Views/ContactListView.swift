@@ -14,7 +14,7 @@ struct ContactListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(contactListVM.contacts, id: \.self) { contact in
+                ForEach(contactListVM.contacts) { contact in
                     NavigationLink {
                         ContactView(person: contact)
                     } label: {
