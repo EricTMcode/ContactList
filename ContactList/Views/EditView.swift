@@ -41,6 +41,8 @@ struct EditView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

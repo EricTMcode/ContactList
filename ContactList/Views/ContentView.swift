@@ -14,14 +14,18 @@ struct ContactListView: View {
         NavigationStack {
             List {
                 ForEach(contactListVM.contacts, id: \.self) { contact in
-                    HStack {
-                        Image(systemName: "person.circle")
-                            .font(.system(size: 50))
-                        VStack(alignment: .leading) {
-                            Text(contact.name)
-                                .font(.title2)
-                                .bold()
-                            Text("Apple Corporation")
+                    NavigationLink {
+                        EditView(person: contact)
+                    } label: {
+                        HStack {
+                            Image(systemName: "person.circle")
+                                .font(.system(size: 50))
+                            VStack(alignment: .leading) {
+                                Text(contact.name)
+                                    .font(.title2)
+                                    .bold()
+                                Text("Apple Corporation")
+                            }
                         }
                     }
                 }
