@@ -11,7 +11,8 @@ class ContactListViewModel: ObservableObject {
     @Published var contacts: [Person] = []
     
     init() {
-        contacts = [Person(name: "Eric", company: "Apple Corporation"), Person(name: "Stephan", company: "Microsoft TM")]
+//        contacts = [Person(name: "Eric", company: "Apple Corporation"), Person(name: "Stephan", company: "Microsoft TM")]
+        loadData()
     }
     
     func savePerson(person: Person) {
@@ -47,6 +48,15 @@ class ContactListViewModel: ObservableObject {
             try data?.write(to: path)
         } catch {
             print("😡 ERROR: Could not save data \(error.localizedDescription)")
+        }
+    }
+    
+    func loadData() {
+        guard let data = try? Data(contentsOf: path) else { return }
+        do {
+            contacts = try JSONDecoder().decode([Person].self, from: data)
+        } catch {
+            
         }
     }
 }
