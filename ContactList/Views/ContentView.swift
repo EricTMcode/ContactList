@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ContactListView: View {
-    let contacts = ["Eric", "Stephan", "Sylvie", "Lucia"]
+    @EnvironmentObject var contactListVM: ContactListViewModel
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(contacts, id: \.self) { contact in
+                ForEach(contactListVM.contacts, id: \.self) { contact in
                     HStack {
                         Image(systemName: "person.circle")
                             .font(.system(size: 50))
                         VStack(alignment: .leading) {
-                            Text(contact)
+                            Text(contact.name)
                                 .font(.title2)
                                 .bold()
                             Text("Apple Corporation")
@@ -46,5 +46,6 @@ struct ContactListView: View {
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ContactListView()
+            .environmentObject(ContactListViewModel())
     }
 }

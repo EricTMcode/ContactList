@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person: Identifiable, Codable {
+struct Person: Identifiable, Codable, Hashable {
     var id: String?
     var name = ""
     var company = ""
