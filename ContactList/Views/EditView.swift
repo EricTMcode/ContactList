@@ -43,6 +43,7 @@ struct EditView: View {
                     contactlistVM.savePerson(person: person)
                     dismiss()
                 }
+                .disabled(person.name.isEmpty || person.company.isEmpty)
             }
         }
         .navigationBarBackButtonHidden()
