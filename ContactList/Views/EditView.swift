@@ -6,24 +6,46 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditView: View {
     @EnvironmentObject var contactlistVM: ContactListViewModel
     @Environment(\.dismiss) private var dismiss
     @State var person: Person
     
+    @State private var selectedPhoto: PhotosPickerItem?
+    @State private var image = Image(systemName: "person.crop.circle")
+    
+    
     var body: some View {
         Form {
             HStack {
                 Spacer()
                 VStack {
-                    Image(systemName: "person.crop.circle")
-                        .font(.system(size: 120))
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 130, height: 130)
+                        .clipShape(Circle())
+                        .clipped()
                         .foregroundColor(.blue)
                     
-                    Text("Add picture")
-                        .font(.subheadline)
+                    PhotosPicker("Add picture", selection: $selectedPhoto, matching: .images, preferredItemEncoding: .automatic)
                         .foregroundColor(.gray)
+                        .font(.subheadline)
+                }
+                .onChange(of: selectedPhoto) { newValue in
+                    Task {
+                        do {
+                            if let data = try await newValue?.loadTransferable(type: Data.self) {
+                                if let uiImage = UIImage(data: data) {
+                                    image = Image(uiImage: uiImage)
+                                }
+                            }
+                        } catch {
+                            print("😡 ERROR: loading failed \(error.localizedDescription)")
+                        }
+                    }
                 }
                 Spacer()
             }
