@@ -35,6 +35,9 @@ struct EditView: View {
             Section("Informations") {
                 TextField("Phone", text: $person.phone)
                 TextField("Email", text: $person.email)
+                    .keyboardType(.emailAddress)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
                 TextField("Location", text: $person.location)
             }
         }
