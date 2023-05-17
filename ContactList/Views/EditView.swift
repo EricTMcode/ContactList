@@ -13,22 +13,25 @@ struct EditView: View {
     @State var person: Person
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Name:")
-                .font(.title2)
-                .bold()
-            TextField("Enter name", text: $person.name)
-                .textFieldStyle(.roundedBorder)
-            
-            Text("Company:")
-                .font(.title2)
-                .bold()
-            TextField("Enter Company", text: $person.company)
-                .textFieldStyle(.roundedBorder)
-            
-            Spacer()
+        Form {
+            HStack {
+                Spacer()
+                VStack {
+                    Image(systemName: "person.crop.circle")
+                        .font(.system(size: 120))
+                        .foregroundColor(.blue)
+                    
+                    Text("Add picture")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                Spacer()
+            }
+            Section("Add contact") {
+                TextField("Name*", text: $person.name)
+                TextField("Company*", text: $person.company)
+            }
         }
-        .padding()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button("Cancel") {
