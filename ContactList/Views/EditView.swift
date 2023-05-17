@@ -31,6 +31,12 @@ struct EditView: View {
                 TextField("Name*", text: $person.name)
                 TextField("Company*", text: $person.company)
             }
+            
+            Section("Informations") {
+                TextField("Phone", text: $person.phone)
+                TextField("Email", text: $person.email)
+                TextField("Location", text: $person.location)
+            }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

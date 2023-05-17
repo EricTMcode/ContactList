@@ -15,14 +15,39 @@ struct ContactView: View {
         VStack {
             Image(systemName: "person.circle")
                 .resizable()
-                .scaledToFit()
-                .frame(width: 100)
+                .scaledToFill()
+                .frame(width: 150, height: 150)
+                .foregroundColor(.blue)
             
             Text(person.name)
-                .font(.largeTitle)
-                .fontWeight(.semibold)
+                .font(.title)
+                .fontWeight(.medium)
+            Text(person.company)
+                .font(.callout)
             
-            Spacer()
+            Form {
+                HStack {
+                    Text("Phone")
+                    Spacer()
+                    Text(person.phone)
+                        .foregroundColor(.gray)
+                        .font(.callout)
+                }
+                HStack {
+                    Text("Email")
+                    Spacer()
+                    Text(person.email)
+                        .foregroundColor(.gray)
+                        .font(.callout)
+                }
+                HStack {
+                    Text("Location")
+                    Spacer()
+                    Text(person.location)
+                        .foregroundColor(.gray)
+                        .font(.callout)
+                }
+            }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

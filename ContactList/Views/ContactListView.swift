@@ -20,11 +20,11 @@ struct ContactListView: View {
                     } label: {
                         HStack {
                             Image(systemName: "person.circle")
-                                .font(.system(size: 50))
+                                .font(.system(size: 60))
+                                .foregroundColor(.blue)
                             VStack(alignment: .leading) {
                                 Text(contact.name)
-                                    .font(.title2)
-                                    .bold()
+                                    .font(.headline)
                                 Text(contact.company)
                             }
                         }
